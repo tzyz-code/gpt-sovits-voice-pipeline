@@ -56,7 +56,7 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/<you>/gpt-sovits-voice-pipeline
+git clone https://github.com/tzyz-code/gpt-sovits-voice-pipeline
 cd gpt-sovits-voice-pipeline
 pip install -r requirements.txt          # 装在 GPT-SoVITS 的环境里
 cp config.example.yaml config.yaml       # 填 gpt_sovits_root
