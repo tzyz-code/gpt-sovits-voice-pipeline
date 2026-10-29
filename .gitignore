@@ -1,0 +1,43 @@
+# 本机配置
+config.yaml
+
+# 数据集与训练中间产物（体积大，且通常涉及第三方版权，绝不入库）
+dataset/
+ref/
+assets/
+output/
+logs/
+*.list
+
+# 模型权重
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# 音频 / 视频
+*.wav
+*.ogg
+*.flac
+*.mp3
+*.m4a
+*.mp4
+
+# 由脚本生成的试听页（内嵌本地路径，没意义）
+**/*.html
+!docs/**/*.html
+
+# 系统与工具
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 训练日志
+*.log
+!docs/**/*.log

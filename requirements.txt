@@ -1,0 +1,17 @@
+# 这些脚本要在 GPT-SoVITS 的 Python 环境里跑（它已经自带 torch / numpy / librosa）。
+# 下面只列 GPT-SoVITS 环境里可能没有的部分。
+#
+#   pip install -r requirements.txt
+
+# 配置与 HTTP
+pyyaml>=6.0
+httpx>=0.27
+
+# 音频分析（GPT-SoVITS 环境通常已有，缺了再装）
+librosa>=0.10
+soundfile>=0.12
+numpy>=1.24
+
+# 反向转写校验（评测环节用，体积较大，不用评测可以不装）
+# funasr>=1.1
+# modelscope>=1.17

@@ -1,0 +1,151 @@
+{
+  "id": "kei-read-lines",
+  "revision": 0,
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "AnomalousTTS_CharacterSpeech",
+      "pos": [
+        60,
+        120
+      ],
+      "size": [
+        470,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1,
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "凯伊念台词",
+      "properties": {
+        "Node name for S&R": "AnomalousTTS_CharacterSpeech"
+      },
+      "widgets_values": [
+        "Kei",
+        "{main}先生、おはようございます。今日の予定をまとめました。\n{慌张}えっ、もうそんな時間ですか！？ちょっと待ってください！\n{温柔}……無理はしないでくださいね。[pause:0.3]\n{害羞}べ、別に心配しているわけではありませんから。",
+        1024,
+        "randomize",
+        1.2,
+        "Japanese",
+        "",
+        "",
+        "auto",
+        "auto",
+        0.3,
+        15,
+        1.0,
+        0.8,
+        1.35,
+        8,
+        "adjust",
+        "normalize",
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "PreviewAudio",
+      "pos": [
+        580,
+        120
+      ],
+      "size": [
+        320,
+        140
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 3,
+      "type": "SaveAudio",
+      "pos": [
+        580,
+        320
+      ],
+      "size": [
+        320,
+        150
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 2
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "Kei台词"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

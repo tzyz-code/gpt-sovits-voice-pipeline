@@ -1,0 +1,21 @@
+# 复制成 config.yaml 再改。config.yaml 已在 .gitignore 里，不会被提交。
+# 环境变量可以覆盖这里的值：GPT_SOVITS_ROOT / COMFYUI_ROOT / MODELSCOPE_CACHE
+
+# 必填。GPT-SoVITS 整合包或源码仓库的根目录（里面有 GPT_SoVITS/ 目录）。
+# Windows 示例：D:/GPT-SoVITS/GPT-SoVITS
+gpt_sovits_root: D:/GPT-SoVITS/GPT-SoVITS
+
+# 可选。要做 ComfyUI 部署时填，指向 ComfyUI/ 这一层（里面有 models/ 和 custom_nodes/）。
+comfyui_root: D:/ComfyUI_windows_portable/ComfyUI
+
+# 可选但强烈建议。funasr / modelscope 的缓存目录，必须是纯 ASCII 路径。
+# 不填的话在中文用户名目录下，Windows 上 sentencepiece 会打不开模型。
+model_cache: D:/gsv_cache
+
+# 角色标识。同时用作说话人名、数据集目录名、训练实验名。
+character: my_char
+# 参考语的语种：ja / zh / en
+language: ja
+
+# 可选。训练实验名，默认同 character。想跑对照组时改它，例如 my_char_emotion
+# experiment: my_char
