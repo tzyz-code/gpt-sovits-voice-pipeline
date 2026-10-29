@@ -18,7 +18,7 @@
 | 脚本、文档、工作流模板 | ✅ 可以 | 本仓库的内容 |
 | 训练好的角色权重（`.pth` / `.ckpt`） | ❌ **不要** | 由第三方版权语音训练而来，属于衍生作品 |
 | 从游戏 / 动画里提取的原始音频 | ❌ **不要** | 版权归原权利人，且通常违反用户协议 |
-| GPT-SoVITS 底模 | ❌ 不要 | 体积大，首次使用会自动下载 |
+| GPT-SoVITS 底模 | ❌ 不要 | 1.3 GB，5 个文件超 GitHub 单文件 100 MB 上限，推不上去；用 `scripts/fetch_pretrained.py` 一条命令拉 |
 
 **用自己的声音**、或有明确授权的声音训练模型，公开分享没有法律问题。
 用商业作品里的角色声音训练再公开分发权重，会构成侵权——GitHub 收到 DMCA 会直接下架仓库，
@@ -61,7 +61,11 @@ cd gpt-sovits-voice-pipeline
 pip install -r requirements.txt          # 装在 GPT-SoVITS 的环境里
 cp config.example.yaml config.yaml       # 填 gpt_sovits_root
 python scripts/paths.py                  # 检查路径是否都对了
+python scripts/fetch_pretrained.py       # 拉 1.3 GB 底模（可断点续传、自动换源）
 ```
+
+`fetch_pretrained.py` 可加 `--check` 只看状态不下载，`--source hf-mirror` 手动指定源。
+手动下载也行，三个官方地址和文件清单见 `docs/01-setup.md` 第 3 节。
 
 之后按顺序：
 
@@ -140,6 +144,9 @@ scripts/
   paths.py              所有路径的唯一来源（读 config.yaml）
   voiceprint.py         声纹特征的唯一实现（别在别处另写一份）
 
+  00 环境
+  fetch_pretrained.py   下载 GPT-SoVITS 底模（三源自动切换、断点续传、体积校验）
+
   01 数据
   fetch_audio.py        按 MediaWiki md5 分桶规则直连 CDN 下载
   parse_wiki.py         wikitext → 台词表
@@ -195,7 +202,7 @@ docs/
 | 文档 | 内容 |
 |---|---|
 | [原理与选型](docs/00-concepts.md) | 两段式架构、三条硬规则、零样本 vs 微调、时间预期、版权 |
-| [环境准备](docs/01-setup.md) | GPT-SoVITS、ffmpeg、`MODELSCOPE_CACHE` 必须是 ASCII、参考配置 |
+| [环境准备](docs/01-setup.md) | GPT-SoVITS、底模下载、ffmpeg、`MODELSCOPE_CACHE` 必须是 ASCII、参考配置 |
 | [数据集](docs/02-dataset.md) | 抓音频、抓台词、生成清单、配对抽查 |
 | [训练](docs/03-training.md) | 版本怎么选（选错白干）、参数、小数据集怎么定轮数 |
 | [评测与定档](docs/04-evaluation.md) | 声纹打分、反向转写、种子效应、训练集外验证、中文天花板 |
